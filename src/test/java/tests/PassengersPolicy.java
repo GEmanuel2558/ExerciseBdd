@@ -45,15 +45,24 @@ public class PassengersPolicy {
 
     @Then("you can add him but not remove him from the economy flight")
     public void thenYouCanAddHimButNotRemoveHimFromTheEconomyFlight() {
-/*        Assertions.assertAll("Verify all conditions for a usual passanger and business flight",
-                () -> Assertions.assertEquals(false, businessFlight.addPassenger(mike)),
-                () -> Assertions.assertEquals(0, businessFlight.getPassengersList().size()),
-                () -> Assertions.assertEquals(false, businessFlight.removePassenger(mike)),
-                () -> Assertions.assertEquals(0, businessFlight.getPassengersList().size()));*/
+        Assertions.assertAll("Verify all conditions for a usual passanger and business flight",
+                () -> Assertions.assertEquals(true, economicFlight.addPassenger(mike)),
+                () -> Assertions.assertEquals(1, economicFlight.getPassengersList().size()),
+                () -> Assertions.assertEquals(true, economicFlight.removePassenger(mike)),
+                () -> Assertions.assertEquals(0, economicFlight.getPassengersList().size()));
     }
 
     @Given("there is an business flight")
     public void givenThereIsAnBusinessFlight() {
         this.businessFlight = new BusinessFlight("1");
+    }
+
+    @Then("you can add or remove him from an business flight")
+    public void thenYouCanAddOrRemoveHimFromAnBusinessFlight() {
+        Assertions.assertAll("Verify all conditions for a usual passanger and business flight",
+                () -> Assertions.assertEquals(false, businessFlight.addPassenger(mike)),
+                () -> Assertions.assertEquals(0, businessFlight.getPassengersList().size()),
+                () -> Assertions.assertEquals(false, businessFlight.removePassenger(mike)),
+                () -> Assertions.assertEquals(0, businessFlight.getPassengersList().size()));
     }
 }

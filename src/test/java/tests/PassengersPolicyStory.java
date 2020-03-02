@@ -18,17 +18,17 @@ public class PassengersPolicyStory extends JUnitStories {
         return new MostUsefulConfiguration()
                 .useStoryReporterBuilder(new StoryReporterBuilder()
                         .withDefaultFormats()
-                        .withFormats(Format.CONSOLE));
+                        .withFormats(Format.CONSOLE, Format.TXT, Format.HTML, Format.XML));
     }
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new PassengersPolicy());
+        return new InstanceStepsFactory(configuration(), new PassengersPolicy(), new BonusPolicy());
     }
 
 
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("my_stories/passager_policy_story.story");
+        return Arrays.asList("my_stories/passager_policy_story.story", "my_stories/bonus_policy.story");
     }
 }

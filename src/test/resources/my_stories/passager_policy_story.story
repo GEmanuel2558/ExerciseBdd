@@ -27,4 +27,4 @@ Then you can add or remove him from an economy flight
 Scenario: Business flight, VIP passanger
 Given there is an business flight
 When we have a VIP passanger
-Then you can add or remove him from an economy flight
+Then you can add or remove him from an business flight
